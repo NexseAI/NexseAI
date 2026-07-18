@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta de Presentación Digital - Cesar Sedano Millan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Montserrat', sans-serif; -webkit-font-smoothing: antialiased; background-color: #050810; }
+        .card-container { width: 100%; margin: 0; min-height: 100vh; display: flex; flex-direction: column; background-color: #090d16; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+        @media (min-width: 450px) { .card-container { max-width: 430px; margin: 1rem auto; min-height: calc(100vh - 2rem); border-radius: 28px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.08); } }
+        .header-image-container { width: 100%; height: 140px; overflow: hidden; }
+        .header-img { width: 100%; height: 100%; object-fit: cover; }
+        .content-section { background: #090d16; margin-top: -20px; border-top-left-radius: 40px; border-top-right-radius: 40px; position: relative; padding-bottom: 2rem; flex-grow: 1; z-index: 10; padding-top: 1.5rem; }
+        .profile-container { position: relative; width: 85px; height: 85px; margin: 0 auto; }
+        .profile-pic { width: 100%; height: 100%; border: 3px solid #06b6d4; box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3); background-color: #050810; }
+        .action-btn { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); color: #090d16; transition: all 0.3s ease; cursor: pointer; }
+        .social-btn { background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); color: white; transition: all 0.3s ease; cursor: pointer; }
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5, 8, 16, 0.85); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; visibility: hidden; transition: opacity 0.3s ease; backdrop-filter: blur(8px); }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content { background: #0f172a; border-radius: 24px; max-width: 90%; width: 480px; max-height: 85vh; border: 2px solid rgba(6, 182, 212, 0.2); transform: scale(0.95); transition: transform 0.3s ease; overflow-y: auto; }
+        .modal-overlay.active .modal-content { transform: scale(1); }
+        .modal-header { padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .modal-header-title { color: white; font-weight: 700; font-size: 1.25rem; }
+        .modal-close-btn { color: white; opacity: 0.6; font-size: 1.5rem; cursor: pointer; }
+        .modal-body { padding: 0 1.5rem 1.5rem 1.5rem; }
+        [contenteditable]:hover { outline: 1px dashed #06b6d4; cursor: text; }
+        [contenteditable]:focus { outline: 2px solid #06b6d4; background: rgba(6, 182, 212, 0.1); }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="header-image-container">
+            <img src="https://i.postimg.cc/tgR5YxJ5/Gemini-Generated-Image-1xvtca1xvtca1xvt.png" alt="Header" class="header-img">
+        </div>
+        <div class="content-section">
+            <div class="flex flex-col items-center px-6 text-center">
+                <div class="profile-container mb-3">
+                    <img src="https://i.postimg.cc/gj7y7SKx/Gemini-Generated-Image-fjqbljfjqbljfjqb.png" alt="Perfil" class="profile-pic object-cover rounded-full">
+                </div>
+                <h1 contenteditable="true" class="text-xl font-bold text-white tracking-tight">Cesar Sedano Millan</h1>
+                <p contenteditable="true" class="text-sm text-cyan-400 font-semibold mt-0.5">Consultor en IA y Automatización</p>
+                <p contenteditable="true" class="text-slate-200 opacity-95 mt-4 max-w-sm italic text-sm leading-relaxed px-2">"Ayudo a profesionales independientes y pequeños negocios a conseguir más clientes, vender más y optimizar su operación mediante automatización, inteligencia artificial y software."</p>
+                                
+                <div class="flex flex-row gap-4 w-full max-w-sm mx-auto mt-6 px-2">
+                    <div id="agendar-btn" class="action-btn w-full flex items-center justify-center gap-3 font-bold py-3 rounded-xl text-md">
+                        <i class="fas fa-calendar-alt"></i> <span contenteditable="true">Agendar</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-4 gap-2 w-full max-w-sm mx-auto mt-4 px-2">
+                    <div id="services-btn" class="social-btn flex flex-col justify-center items-center py-2 w-full h-16 rounded-2xl">
+                        <i class="fas fa-cubes text-lg text-cyan-400"></i>
+                        <span contenteditable="true" class="text-[9px] mt-1 font-medium text-slate-300">Servicios</span>
+                    </div>
+                    <div id="horario-btn" class="social-btn flex flex-col justify-center items-center py-2 w-full h-16 rounded-2xl">
+                        <i class="fas fa-clock text-lg text-cyan-400"></i>
+                        <span contenteditable="true" class="text-[9px] mt-1 font-medium text-slate-300">Horarios</span>
+                    </div>
+                    <div id="qr-code-btn" class="social-btn flex flex-col justify-center items-center py-2 w-full h-16 rounded-2xl">
+                        <i class="fas fa-qrcode text-lg text-cyan-400"></i>
+                        <span contenteditable="true" class="text-[9px] mt-1 font-medium text-slate-300">QR</span>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Centro+Comercial+Unicentro+Cucuta+Norte+de+Santander" target="_blank" class="social-btn flex flex-col justify-center items-center py-2 w-full h-16 rounded-2xl">
+                        <i class="fas fa-map-marker-alt text-lg text-red-400"></i>
+                        <span contenteditable="true" class="text-[9px] mt-1 font-medium text-slate-300">Ubicación</span>
+                    </a>
+                    <a href="https://www.facebook.com/NexseAi" target="_blank" class="social-btn flex flex-col justify-center items-center py-2 w-full h-16 rounded-2xl">
+                        <i class="fab fa-facebook-f text-lg text-blue-400"></i>
+                        <span contenteditable="true" class="text-[9px] mt-1 font-medium text-slate-300">Facebook</span>
+                    </a>
+                    <a href="https://www.instagram.com/nexe.ai_/" target="_blank" class="social-btn flex flex-col justify-center items-center py-2 w-full h-16 rounded-2xl">
+                        <i class="fab fa-instagram text-lg text-pink-400"></i>
+                        <span contenteditable="true" class="text-[9px] mt-1 font-medium text-slate-300">Instagram</span>
+                    </a>
+                    <a href="https://wa.me/573157786871" target="_blank" class="social-btn flex flex-col justify-center items-center py-2 w-full h-16 rounded-2xl">
+                        <i class="fab fa-whatsapp text-lg text-[#25d366]"></i>
+                        <span contenteditable="true" class="text-[9px] mt-1 font-medium text-slate-300">WhatsApp</span>
+                    </a>
+                    <div id="save-contact-btn" class="social-btn flex flex-col justify-center items-center py-2 w-full h-16 rounded-2xl">
+                        <i class="fas fa-address-card text-lg text-amber-400"></i>
+                        <span contenteditable="true" class="text-[9px] mt-1 font-medium text-slate-300">Guardar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center py-4 px-4 font-semibold text-xs">
+            <p contenteditable="true" class="text-slate-400">Impulsando tu negocio hacia el futuro</p>
+            <a href="mailto:hola@nexse.ai" class="block text-[10px] text-cyan-400 hover:underline mt-1 font-medium" contenteditable="true">hola@nexse.ai</a>
+        </div>
+    </div>
+
+    <div id="services-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 contenteditable="true" class="modal-header-title">¿Cómo puedo ayudarte?</h2>
+                <button class="modal-close-btn" onclick="closeModal('services-modal')">&times;</button>
+            </div>
+            <div class="modal-body text-white">
+                <div class="flex flex-col gap-2 text-left">
+                    <div class="flex items-center space-x-3 p-2.5 rounded-xl bg-slate-800/50"><span contenteditable="true">🤖</span><h3 contenteditable="true">Automatización e IA</h3></div>
+                    <div class="flex items-center space-x-3 p-2.5 rounded-xl bg-slate-800/50"><span contenteditable="true">📈</span><h3 contenteditable="true">Marketing y Publicidad</h3></div>
+                    <div class="flex items-center space-x-3 p-2.5 rounded-xl bg-slate-800/50"><span contenteditable="true">💻</span><h3 contenteditable="true">Desarrollo de Software</h3></div>
+                    <div class="flex items-center space-x-3 p-2.5 rounded-xl bg-slate-800/50"><span contenteditable="true">🌐</span><h3 contenteditable="true">Sitios Web y Landing Pages</h3></div>
+                    <div class="flex items-center space-x-3 p-2.5 rounded-xl bg-slate-800/50"><span contenteditable="true">📱</span><h3 contenteditable="true">Apps Web y Móviles</h3></div>
+                    <div class="flex items-center space-x-3 p-2.5 rounded-xl bg-slate-800/50"><span contenteditable="true">🚀</span><h3 contenteditable="true">Embudos de Venta</h3></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="horario-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header"><h2 contenteditable="true" class="modal-header-title">Horarios de Atención</h2><button class="modal-close-btn" onclick="closeModal('horario-modal')">&times;</button></div>
+            <div class="modal-body text-white"><p contenteditable="true">Lunes a Viernes: 8:00 AM - 6:00 PM</p><p contenteditable="true">Sábados: 9:00 AM - 1:00 PM</p></div>
+        </div>
+    </div>
+
+    <div id="qr-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header"><h2 contenteditable="true" class="modal-header-title">Mi Código QR</h2><button class="modal-close-btn" onclick="closeModal('qr-modal')">&times;</button></div>
+            <div class="modal-body text-center">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://nexse.ai" alt="QR" class="mx-auto rounded-xl">
+                <p contenteditable="true" class="mt-4 text-xs text-slate-400">Escanea para visitar nuestro sitio</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const openModal = (id) => document.getElementById(id).classList.add('active');
+        const closeModal = (id) => document.getElementById(id).classList.remove('active');
+        
+        document.getElementById('services-btn').onclick = () => openModal('services-modal');
+        document.getElementById('horario-btn').onclick = () => openModal('horario-modal');
+        document.getElementById('qr-code-btn').onclick = () => openModal('qr-modal');
+        document.getElementById('agendar-btn').onclick = () => window.open('https://wa.me/573157786871', '_blank');
+
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.onclick = (e) => { if(e.target === overlay) overlay.classList.remove('active'); }
+        });
+    </script>
+</body>
+</html>
